@@ -178,12 +178,12 @@ h1 {
 	opacity: 1;
 }
 
-[data-valid="invalid"] .input:focus {
-	box-shadow: 0 0 5px 0 #f00;
+[data-valid="valid"] .input:focus {
+	box-shadow: 0 0 5px 0 #7EB400;
 }
 
-.input:focus {
-	box-shadow: 0 0 5px 0 #7EB400;
+[data-valid="invalid"] .input:focus {
+	box-shadow: 0 0 5px 0 #f00;
 }
 
 .path {
