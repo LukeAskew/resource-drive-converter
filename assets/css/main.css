@@ -1,40 +1,30 @@
 /**
- * Fonts/icons
+ * Icons
  */
 
-/* trade gothic */
-@font-face {
-		font-family: 'TradeGothicLTStd';
-		src: url('../fonts/tradegothicltstd.eot');
-		src: url('../fonts/tradegothicltstd.eot?#iefix') format('embedded-opentype'),
-				 url('../fonts/tradegothicltstd.woff') format('woff'),
-				 url('../fonts/tradegothicltstd.ttf') format('truetype'),
-				 url('../fonts/tradegothicltstd.svg#tradegothicltstd') format('svg');
-		font-weight: normal;
-		font-style: normal;
-}
-
 /* icons */
+
 @font-face {
+	font-weight: normal;
+	font-style: normal;
 	font-family: "converter";
-	src:url("../fonts/converter.eot");
-	src:url("../fonts/converter.eot?#iefix") format("embedded-opentype"),
+	src: url("../fonts/converter.eot");
+	src: url("../fonts/converter.eot?#iefix") format("embedded-opentype"),
 		url("../fonts/converter.woff") format("woff"),
 		url("../fonts/converter.ttf") format("truetype"),
 		url("../fonts/converter.svg#converter") format("svg");
-	font-weight: normal;
-	font-style: normal;
 }
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
+
 [data-icon]:before {
-	font-family: "converter";
 	content: attr(data-icon);
-	speak: none;
+	text-transform: none;
 	font-weight: normal;
 	font-variant: normal;
-	text-transform: none;
+	font-family: "converter";
 	line-height: 1;
+	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -45,16 +35,17 @@
 .icon-storage,
 .icon-stack,
 .icon-hdd {
-	font-family: "converter";
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
 	vertical-align: top;
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-family: "converter";
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
 }
+
 .icon-apple:before {
 	content: "\e000";
 }
@@ -80,22 +71,23 @@
 }
 
 .both-icons {
-	display: inline-block;
 	position: relative;
-	background-color: #333;
+	display: inline-block;
 	padding: 0.314em;
+	background-color: #333;
 	color: #eee;
 }
 
 /**
  * Typography
  */
+
 body,
 .input {
-	font-family: sans-serif;
-	font-size: 16px;
-	line-height: 1;
 	color: #333;
+	font-size: 16px;
+	font-family: sans-serif;
+	line-height: 1;
 }
 
 a,
@@ -105,81 +97,85 @@ a:active {
 }
 
 h1 {
-	font-size: 3.14em;
-	letter-spacing: -0.03em;
 	margin: 0.618em 0 0.314em;
+	letter-spacing: -0.03em;
+	font-size: 3.14em;
 }
 
 /**
  * Structure
  */
+
 * {
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 .container {
-	width: 88%;
 	margin: 0 auto;
+	width: 88%;
 	background: transparent;
 }
 
 .path .alpha {
-	width: 3%;
-	margin-right: 1%;
-	text-align: center;
 	display: inline-block;
+	margin-right: 1%;
+	width: 3%;
 	vertical-align: middle;
+	text-align: center;
 }
 
 .path .beta {
-	width: 90%;
 	display: inline-block;
+	width: 90%;
 	vertical-align: middle;
 }
 
 .path .omega {
-	width: 4%;
 	display: inline-block;
 	float: right;
-	text-align: center;
+	width: 4%;
 	vertical-align: middle;
+	text-align: center;
 }
-
 
 /**
  * Primary styles
  */
+
 .input {
-	appearance: none;
-	background-image: none;
-	outline: none;
-	transition: box-shadow .25s ease-in-out,border-color .25s ease-in-out;
 	width: 100%;
+	outline: none;
+	background-image: none;
+	-webkit-transition: box-shadow .25s ease-in-out,border-color .25s ease-in-out;
+	transition: box-shadow .25s ease-in-out,border-color .25s ease-in-out;
+	appearance: none;
 }
 
 #source {
-	background-color: #fff;
-	border: none;
-	font-size: 2.5em;
-	font-style: normal;
-	font-weight: 300;
 	margin-bottom: 30px;
-	outline: none;
 	padding: 5px;
 	width: 100%;
+	outline: none;
+	border: none;
+	background-color: #fff;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 2.5em;
 }
 
 .paths {
 	visibility: hidden;
-	opacity: 0;
 	height: 0;
+	opacity: 0;
+	-webkit-transition: opacity .25s ease-in-out,border-color .25s ease-in-out;
 	transition: opacity .25s ease-in-out,border-color .25s ease-in-out;
 }
 
 [data-valid="valid"] .paths {
 	visibility: visible;
-	opacity: 1;
 	height: auto;
+	opacity: 1;
 }
 
 [data-valid="invalid"] .input:focus {
@@ -191,15 +187,15 @@ h1 {
 }
 
 .path {
+	position: relative;
 	padding: 0.618em 0;
 	border-bottom: 1px solid #eee;
-	position: relative;
 }
 
 .path .input {
-	border: none;
-	padding: 0.314em;
 	margin: 0;
+	padding: 0.314em;
+	border: none;
 }
 
 .path .alpha > [class^="icon-"] {
@@ -207,14 +203,15 @@ h1 {
 }
 
 .copy-button {
-	background-color: #eee;
-	border: none;
+	position: relative;
 	padding: 0.314em 0.618em;
+	outline: none;
+	border: none;
+	background-color: #eee;
 	font-size: 1em;
 	cursor: pointer;
-	position: relative;
+	-webkit-transition: all .25s ease-in-out,border-color .25s ease-in-out;
 	transition: all .25s ease-in-out,border-color .25s ease-in-out;
-	outline: none;
 }
 
 .copy-button:focus {
@@ -227,7 +224,7 @@ h1 {
 }
 
 .copy-button.zeroclipboard-is-active {
-	top: 1px
+	top: 1px;
 }
 
 /**
@@ -243,11 +240,12 @@ footer {
 }
 
 footer a {
-	opacity: 0.314;
-	font-size: 0.618em;
+	display: block;
 	padding-top: 2.618em;
 	text-decoration: none;
-	display: block;
+	font-size: 0.618em;
+	opacity: 0.314;
+	-webkit-transition: opacity .25s ease-in-out,border-color .25s ease-in-out;
 	transition: opacity .25s ease-in-out,border-color .25s ease-in-out;
 }
 
