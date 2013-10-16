@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drive Converter</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body>
+
+	<div class="container" data-valid="invalid">
+
+		<header>
+			<h1>Resource Drive Converter</h1>
+		</header>
+
+		<form action="">
+			<input type="text" placeholder="Enter a path..." autocomplete="off" id="source" class="input">
+		</form>
+
+		<div class="paths">
+
+			<div class="path">
+				<div class="alpha">
+					<span aria-hidden="true" class="icon-apple"></span>
+				</div>
+				<div class="beta">
+					<input type="text" class="input" id="mac">
+				</div>
+				<div class="omega">
+					<button class="copy-button" id="clipboard-mac">
+						<span aria-hidden="true" class="icon-paste"></span>
+					</button>
+				</div>
+			</div>
+
+			<div class="path">
+				<div class="alpha">
+					<span aria-hidden="true" class="icon-windows8"></span>
+				</div>
+				<div class="beta">
+					<input type="text" class="input" id="windows">
+				</div>
+				<div class="omega">
+					<button class="copy-button" id="clipboard-windows">
+						<span aria-hidden="true" class="icon-paste"></span>
+					</button>
+				</div>
+			</div>
+
+			<div class="path">
+				<div class="alpha">
+					<div class="both-icons">
+						<span aria-hidden="true" class="icon-apple"></span>
+						<span aria-hidden="true" class="icon-windows8"></span>
+					</div>
+				</div>
+				<div class="beta">
+					<textarea class="input" id="both" rows="4"></textarea>
+				</div>
+				<div class="omega">
+					<button class="copy-button" id="clipboard-both">
+						<span aria-hidden="true" class="icon-paste"></span>
+					</button>
+				</div>
+			</div>
+
+		</div>
+
+		<footer>
+			<a href="mailto:laskew@resource.com?Subject=Thanks%20for%20creating%20the%20drive%20converter%21&Body=I%20owe%20you%20a%20beer%20sometime.">Created by Luke Askew</a>
+		</footer>
+
+	</div>
+
+
+	<script src="assets/js/ZeroClipboard.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>

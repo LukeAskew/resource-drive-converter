@@ -1,0 +1,256 @@
+/**
+ * Fonts/icons
+ */
+
+/* trade gothic */
+@font-face {
+		font-family: 'TradeGothicLTStd';
+		src: url('../fonts/tradegothicltstd.eot');
+		src: url('../fonts/tradegothicltstd.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/tradegothicltstd.woff') format('woff'),
+				 url('../fonts/tradegothicltstd.ttf') format('truetype'),
+				 url('../fonts/tradegothicltstd.svg#tradegothicltstd') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
+/* icons */
+@font-face {
+	font-family: "converter";
+	src:url("../fonts/converter.eot");
+	src:url("../fonts/converter.eot?#iefix") format("embedded-opentype"),
+		url("../fonts/converter.woff") format("woff"),
+		url("../fonts/converter.ttf") format("truetype"),
+		url("../fonts/converter.svg#converter") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: "converter";
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-apple,
+.icon-windows8,
+.icon-paste,
+.icon-storage,
+.icon-stack,
+.icon-hdd {
+	font-family: "converter";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	vertical-align: top;
+}
+.icon-apple:before {
+	content: "\e000";
+}
+
+.icon-windows8:before {
+	content: "\e001";
+}
+
+.icon-paste:before {
+	content: "\e002";
+}
+
+.icon-storage:before {
+	content: "\e003";
+}
+
+.icon-stack:before {
+	content: "\e004";
+}
+
+.icon-hdd:before {
+	content: "\f0a0";
+}
+
+.both-icons {
+	display: inline-block;
+	position: relative;
+	background-color: #333;
+	padding: 0.314em;
+	color: #eee;
+}
+
+/**
+ * Typography
+ */
+body,
+.input {
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 1;
+	color: #333;
+}
+
+a,
+a:visited,
+a:active {
+	color: #333;
+}
+
+h1 {
+	font-size: 3.14em;
+	letter-spacing: -0.03em;
+	margin: 0.618em 0 0.314em;
+}
+
+/**
+ * Structure
+ */
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 88%;
+	margin: 0 auto;
+	background: transparent;
+}
+
+.path .alpha {
+	width: 3%;
+	margin-right: 1%;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.path .beta {
+	width: 90%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.path .omega {
+	width: 4%;
+	display: inline-block;
+	float: right;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+/**
+ * Primary styles
+ */
+.input {
+	appearance: none;
+	background-image: none;
+	outline: none;
+	transition: box-shadow .25s ease-in-out,border-color .25s ease-in-out;
+	width: 100%;
+}
+
+#source {
+	background-color: #fff;
+	border: none;
+	font-size: 2.5em;
+	font-style: normal;
+	font-weight: 300;
+	margin-bottom: 30px;
+	outline: none;
+	padding: 5px;
+	width: 100%;
+}
+
+.paths {
+	visibility: hidden;
+	opacity: 0;
+	height: 0;
+	transition: opacity .25s ease-in-out,border-color .25s ease-in-out;
+}
+
+[data-valid="valid"] .paths {
+	visibility: visible;
+	opacity: 1;
+	height: auto;
+}
+
+[data-valid="invalid"] .input:focus {
+	box-shadow: 0 0 5px 0 #f00;
+}
+
+.input:focus {
+	box-shadow: 0 0 5px 0 #7EB400;
+}
+
+.path {
+	padding: 0.618em 0;
+	border-bottom: 1px solid #eee;
+	position: relative;
+}
+
+.path .input {
+	border: none;
+	padding: 0.314em;
+	margin: 0;
+}
+
+.path .alpha > [class^="icon-"] {
+	font-size: 1.618em;
+}
+
+.copy-button {
+	background-color: #eee;
+	border: none;
+	padding: 0.314em 0.618em;
+	font-size: 1em;
+	cursor: pointer;
+	position: relative;
+	transition: all .25s ease-in-out,border-color .25s ease-in-out;
+	outline: none;
+}
+
+.copy-button:focus {
+	outline: none;
+	box-shadow: 0 0 5px 0 #7EB400;
+}
+
+.copy-button.zeroclipboard-is-hover {
+	background-color: #e6e6e6;
+}
+
+.copy-button.zeroclipboard-is-active {
+	top: 1px
+}
+
+/**
+ * Footer
+ */
+
+footer {
+	display: none;
+}
+
+.valid-path footer {
+	display: block;
+}
+
+footer a {
+	opacity: 0.314;
+	font-size: 0.618em;
+	padding-top: 2.618em;
+	text-decoration: none;
+	display: block;
+	transition: opacity .25s ease-in-out,border-color .25s ease-in-out;
+}
+
+footer a:hover {
+	opacity: 1;
+}
