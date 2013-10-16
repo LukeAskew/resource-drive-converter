@@ -235,7 +235,7 @@ footer {
 	display: none;
 }
 
-.valid-path footer {
+[data-valid="valid"] footer {
 	display: block;
 }
 
