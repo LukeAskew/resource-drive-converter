@@ -78,7 +78,7 @@
 		if (path.match(/smb:\\\\/)) {
 			path = path.replace(/smb:\\\\colarnfs\d+\\[\w]+\$/, windowsDrive + ":");
 		} else if (path.match(/\\Volumes\\/)) {
-			path = path.replace(/\\Volumes/, windowsDrive + ":");
+			path = path.replace(/\\Volumes\\\w+\$/, windowsDrive + ":");
 		}
 
 		this.paths.windows = path;
