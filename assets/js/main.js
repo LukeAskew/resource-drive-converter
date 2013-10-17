@@ -116,7 +116,7 @@
 		if (windowsDrive === "P") {
 			macDrive = "clients$";
 		} else if (windowsDrive === "S") {
-			macDrive = "shared";
+			macDrive = "shared$";
 		}
 
 		path = path.replace(/\\/g, "/");
