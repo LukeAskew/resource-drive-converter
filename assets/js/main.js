@@ -61,8 +61,38 @@
 	converter.macToWindows = function(path) {
 
 		// TODO conversion logic
+		var windowsDrive;
+
+		// determine the windows drive mapping
+		if (path.match(/clients\$/)) {
+			windowsDrive = "P";
+		} else if (path.match(/shared\$/)) {
+			windowsDrive = "S";
+		}
+
+		path = path.replace(/\//g, "\\");
+
+		// output in /Volumes/ format
+		if (path.match(/smb:\\\\/)) {
+			path = path.replace(/smb:\\\\colarnfs\d+\\[\w]+\$/, windowsDrive + ":");
+		} else if (path.match(/\\Volumes\\/)) {
+			path = path.replace(/\\Volumes/, windowsDrive + ":");
+		}
 
 		this.paths.windows = path;
+
+		return this;
+
+	};
+
+	converter.macToMac = function(path) {
+
+		// determine the windows drive mapping
+		if (path.match(/smb:\/\//)) {
+			path = path.replace(/smb:\/\/colarnfs\d+/, "/Volumes");
+		}
+
+		this.paths.mac = path;
 
 		return this;
 
@@ -77,7 +107,20 @@
 	 */
 	converter.windowsToMac = function(path) {
 
-		// TODO conversion logic
+		var macDrive,
+			windowsDrive = path.slice(0, 1);
+
+		// determine drive mapping
+		if (windowsDrive === "P") {
+			macDrive = "clients$";
+		} else if (windowsDrive === "S") {
+			macDrive = "shared";
+		}
+
+		console.log(macDrive)
+
+		path = path.replace(/\\/g, "/");
+		path = path.replace(/[P,S,H]:/, "/Volumes/" + macDrive + "/");
 
 		this.paths.mac = path;
 
@@ -104,7 +147,8 @@
 		}
 
 		if (conversionType === "macToWindows") {
-			this.paths.mac = path;
+			// convert the mac path because it can be /Volumes/ or smb://
+			this.macToMac(path);
 		}
 
 		// update output paths
@@ -121,12 +165,11 @@
 	 */
 	converter.determineConversionType = function(path) {
 
-		var type;
-
-		// TODO determination logic
-		type = "windowsToMac"; // temp
-
-		return type;
+		if (path.match(/\/Volumes\/|smb:\/\//)) {
+			return "macToWindows";
+		} else if (path.match(/[P,S,H]:\\/)) {
+			return "windowsToMac";
+		}
 
 	};
 
@@ -161,11 +204,8 @@
 	 * @return {Boolean}
 	 */
 	converter.validate = function(path) {
-
-		// TODO validation logic
-
-		return true;
-
+		// http://regex101.com/r/fN2cV5
+		return path.match(/\/Volumes\/|smb:\/\/|[P,S,H]:\\/);
 	};
 
 
@@ -184,11 +224,15 @@
 			if (converter.validate(path)) {
 				converter.convert(path);
 				converter.cache.container.setAttribute("data-valid", "valid");
+			} else if (path.length === 0) {
+				converter.cache.container.removeAttribute("data-valid");
 			} else {
 				converter.cache.container.setAttribute("data-valid", "invalid");
 			}
 
 		});
+
+		this.cache.source.focus();
 
 	};
 
