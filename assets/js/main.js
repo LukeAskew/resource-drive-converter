@@ -68,6 +68,8 @@
 			windowsDrive = "P";
 		} else if (path.match(/shared\$/)) {
 			windowsDrive = "S";
+		} else {
+			windowsDrive = "?";
 		}
 
 		path = path.replace(/\//g, "\\");
@@ -117,10 +119,8 @@
 			macDrive = "shared";
 		}
 
-		console.log(macDrive)
-
 		path = path.replace(/\\/g, "/");
-		path = path.replace(/[P,S,H]:/, "/Volumes/" + macDrive + "/");
+		path = path.replace(/[P,S,H]:/, "/Volumes/" + macDrive);
 
 		this.paths.mac = path;
 
@@ -205,7 +205,7 @@
 	 */
 	converter.validate = function(path) {
 		// http://regex101.com/r/fN2cV5
-		return path.match(/\/Volumes\/|smb:\/\/|[P,S,H]:\\/);
+		return path.match(/\/Volumes\/\w+\$|smb:\/\/|[P,S,H]:\\/);
 	};
 
 
