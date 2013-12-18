@@ -51,6 +51,17 @@
 		moviePath: "assets/swf/ZeroClipboard.swf"
 	});
 
+	converter.clipboard.on("complete", function () {
+		var node = this.parentNode.parentNode;
+
+		node.classList.add("copy-alert");
+
+		setTimeout(function () {
+			node.classList.remove("copy-alert");
+		}, 2000);
+
+	});
+
 
 	/**
 	 * Converts a Mac path to Windows
