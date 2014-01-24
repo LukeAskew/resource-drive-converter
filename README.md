@@ -1,11 +1,13 @@
 # Resource Drive Converter
 Convert internal network (P:, S:) drive paths.
 
+http://lukeaskew.github.io/resource-drive-converter/
+
 ***
 
 Tired of receiving emails or Jira tickets with asset locations formatted in a different platform convention? Me too!
 
-This web app converts the paths for you. Simply paste in the path, and
+This web app converts the paths for you.
 
 ## Accepted path formats
 The app can convert the "shared" (S) and "client" (P) drives.
